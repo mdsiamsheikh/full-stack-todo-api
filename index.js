@@ -6,6 +6,10 @@ const client = require("./mongodb");
 app.use(express.json());
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.status(200).json({ success: true, message: "Server is running" });
+});
+
 // Get APi
 app.get("/todo/all", async (req, res) => {
   await client.connect();
